@@ -1,0 +1,29 @@
+// Place your settings in this file to overwrite the default settings
+{
+  // Editor interaction
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 3000,
+  "files.exclude": {
+    "**/*.pyc": true,
+    "**/bundle.js": true,
+    "**/node_modules": true
+  },
+  "editor.lineNumbers": "off",
+  "editor.folding": false,
+  "editor.glyphMargin": false,
+  "editor.fontSize": 15,
+  "editor.minimap.enabled": false,
+  // Theme
+  "workbench.colorTheme": "Atom One Dark",
+
+  // Languages
+
+  "javascript.validate.enable": false,
+  
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--ignore=E501,D101,D100"],
+  // GitLens
+  "gitlens.blame.line.enabled": false,
+  "workbench.startupEditor": "newUntitledFile"
+}
