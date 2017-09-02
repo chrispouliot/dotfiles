@@ -46,3 +46,11 @@ ln zshrc ~/.zshrc
 echo "Hard linking hyper settings.."
 
 ln hyper.js ~/.hyper.js
+
+read -sp 'Local machine user/ip to copy ssh and netrc files: ' localvar
+
+ssh-copy-id $localvar
+
+scp $localvar:~/.ssh/config ~/.ssh/config
+
+scp $localvar:~/.netrc ~/.nerc
