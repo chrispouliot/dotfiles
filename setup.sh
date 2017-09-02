@@ -1,4 +1,9 @@
 #!/bin/bash
+
+
+# TOOLING
+
+
 echo "Starting setup.."
 
 echo "Installing Homebrew.."
@@ -27,6 +32,10 @@ echo "Installing thefuck.."
 
 brew install thefuck
 
+
+# APPS
+
+
 echo "Installing vscode.."
 
 brew cask install visual-studio-code
@@ -34,6 +43,10 @@ brew cask install visual-studio-code
 echo "Installing hyper.."
 
 brew cask install hyper
+
+
+# APP SETTINGS
+
 
 echo "Hard linking vscode settings.."
 
@@ -46,6 +59,10 @@ ln zshrc ~/.zshrc
 echo "Hard linking hyper settings.."
 
 ln hyper.js ~/.hyper.js
+
+
+# PRIVATE KEYS
+
 
 read -sp 'Local machine user/ip to copy ssh and netrc files: ' localvar
 
