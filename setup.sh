@@ -33,32 +33,31 @@ echo "Installing thefuck.."
 brew install thefuck
 
 
-# APPS
+# APPS AND SETTINGS
 
 
-echo "Installing vscode.."
-
-brew cask install visual-studio-code
-
-echo "Installing hyper.."
-
-brew cask install hyper
-
-
-# APP SETTINGS
-
+if ! open -Ra "Visual Studio Code" ; then
+  echo "Installing vscode.."
+  brew cask install visual-studio-code
+fi
 
 echo "Hard linking vscode settings.."
 
 ln vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
 
-echo "Hard linking zshrc.."
-
-ln zshrc ~/.zshrc
+if ! open -Ra "Hyper" ; then
+    echo "Installing hyper.."
+    brew cask install hyper
+fi
 
 echo "Hard linking hyper settings.."
 
 ln hyper.js ~/.hyper.js
+
+
+echo "Hard linking zshrc.."
+
+ln zshrc ~/.zshrc
 
 
 # PRIVATE KEYS
