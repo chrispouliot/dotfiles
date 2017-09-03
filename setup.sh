@@ -16,10 +16,6 @@ echo "Installing zsh.."
 
 brew install zsh zsh-completions
 
-echo "Installing oh my zsh.."
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 echo "Installing pyenv and pyenv-virtualenv.."
 
 brew install pyenv
@@ -75,3 +71,13 @@ ssh-copy-id $localvar
 scp $localvar:~/.ssh/config ~/.ssh/config
 
 scp $localvar:~/.netrc ~/.nerc
+
+
+# ----------------------------------------------
+# OH MY ZSH (last because it changes the prompt)
+# ----------------------------------------------
+
+
+echo "Installing oh my zsh.."
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
