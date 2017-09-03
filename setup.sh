@@ -63,7 +63,7 @@ ln zshrc ~/.zshrc
 # PRIVATE KEYS
 
 
-read -sp 'Local machine user/ip to copy ssh and netrc files: ' localvar
+read -p 'Local machine user/ip to copy ssh and netrc files: ' localvar
 
 ssh-copy-id $localvar
 
