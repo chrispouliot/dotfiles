@@ -29,6 +29,15 @@ echo "Installing thefuck.."
 
 brew install thefuck
 
+echo "Installing Heroku toolbelt.."
+
+brew install heroku/brew/heroku
+
+echo "Installing awscli.."
+
+brew install awscli
+
+
 
 # -----------------
 # APPS AND SETTINGS
@@ -40,7 +49,7 @@ if ! open -Ra "Visual Studio Code" 2>/dev/null; then
   brew cask install visual-studio-code
 fi
 
-read -p "Open VSCode and go to settings. Hit enter to continue.."
+read -p "Open VSCode and go to settings so the file exists. Hit enter to continue.."
 echo "Hard linking vscode settings.."
 
 ln vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
