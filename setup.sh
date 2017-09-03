@@ -1,7 +1,8 @@
 #!/bin/bash
 
-
+# ------
 # TOOLING
+# ------
 
 
 echo "Starting setup.."
@@ -33,7 +34,9 @@ echo "Installing thefuck.."
 brew install thefuck
 
 
+# -----------------
 # APPS AND SETTINGS
+# -----------------
 
 
 if ! open -Ra "Visual Studio Code" ; then
@@ -60,7 +63,9 @@ echo "Hard linking zshrc.."
 ln zshrc ~/.zshrc
 
 
+# ------------
 # PRIVATE KEYS
+# ------------
 
 
 read -p 'Local machine user/ip to copy ssh and netrc files: ' localvar
