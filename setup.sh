@@ -39,7 +39,7 @@ brew install thefuck
 # -----------------
 
 
-if ! open -Ra "Visual Studio Code" ; then
+if ! open -Ra "Visual Studio Code" 2>/dev/null; then
   echo "Installing vscode.."
   brew cask install visual-studio-code
 fi
@@ -48,7 +48,7 @@ echo "Hard linking vscode settings.."
 
 ln vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
 
-if ! open -Ra "Hyper" ; then
+if ! open -Ra "Hyper" 2>/dev/null; then
     echo "Installing hyper.."
     brew cask install hyper
 fi
