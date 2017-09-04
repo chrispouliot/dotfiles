@@ -1,11 +1,23 @@
 #!/bin/bash
 
+function ask_confirm {
+	read -p "Install and setup $1? " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        return 0
+    else
+        return 1
+    fi
+}
+
+echo "Starting setup.."
+
+
 # ------
 # TOOLING
 # ------
 
-
-echo "Starting setup.."
 
 echo "Installing Homebrew.."
 
@@ -15,6 +27,7 @@ brew tap caskroom/cask
 echo "Installing zsh.."
 
 brew install zsh zsh-completions
+ln zshrc ~/.zshrc
 
 echo "Installing pyenv and pyenv-virtualenv.."
 
@@ -42,43 +55,52 @@ brew install awscli
 # -----------------
 # APPS AND SETTINGS
 # -----------------
-
-
-if ! open -Ra "Visual Studio Code" 2>/dev/null; then
-  echo "Installing vscode.."
-  brew cask install visual-studio-code
+app_name="Visual Studio Code"
+if ask_confirm $app_name; then
+	if ! open -Ra app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install visual-studio-code
+	fi
+	read -p "Open $app_name and go to settings so the directory exists. Hit enter to continue.."
+	echo "Hard linking vscode settings.."
+	ln -f vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
 fi
 
-read -p "Open VSCode and go to settings so the file exists. Hit enter to continue.."
-echo "Hard linking vscode settings.."
-
-ln vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 
-if ! open -Ra "Hyper" 2>/dev/null; then
-    echo "Installing hyper.."
-    brew cask install hyper
+app_name="Hyper"
+if ask_confirm $app_name; then
+	if ! open -Ra app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install hyper
+	fi
+	echo "Hard linking $app_name settings.."
+	ln -f hyper.js ~/.hyper.js
 fi
 
-echo "Hard linking hyper settings.."
 
-rm ~/.hyper.js 2>/dev/null
-ln hyper.js ~/.hyper.js
-
-
-if ! open -Ra "spectacle" 2>/dev/null; then
-    echo "Installing spectacle.."
-    brew cask install spectacle
+app_name="Bartender 2"
+if ask_confirm $app_name; then
+	if ! open -Ra app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install bartender
+	fi
+	echo "Hard linking $app_name settings.."
+	ln -f bartender.plist ~/Library/Preferences/com.surteesstudios.Bartender.plist
 fi
 
-echo "Hard linking spectacle settings.."
-rm ~/Library/Application\ Support/Spectacle/Shortcuts.json 2>/dev/null
-ln spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
 
+app_name="Spectacle"
+if ask_confirm $app_name; then
+	if ! open -Ra app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install spectacle
+	fi
 
-echo "Hard linking zshrc.."
+	echo "Hard linking $app_name settings.."
 
-ln zshrc ~/.zshrc
+	ln -f spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
+fi
 
 
 # ------------
@@ -140,6 +162,9 @@ defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
 killall "Finder" &> /dev/null
+
+# Spotlight icon and helper
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
 # Spotlight search
 defaults write com.apple.spotlight orderedItems -array \
