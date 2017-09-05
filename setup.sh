@@ -18,6 +18,13 @@ echo "Starting setup.."
 # TOOLING
 # ------
 
+app_name=Xcode
+read -p "Download $app_name from the Apple Store. Hit Enter to continue.."
+if ! open -Ra $app_name 2>/dev/null; then
+	echo "Installing $app_name dev tools.."
+	xcode-select --install
+fi
+
 
 echo "Installing Homebrew.."
 
@@ -57,20 +64,18 @@ brew install awscli
 # -----------------
 app_name="Visual Studio Code"
 if ask_confirm $app_name; then
-	if ! open -Ra app_name 2>/dev/null; then
+	if ! open -Ra $app_name 2>/dev/null; then
 		echo "Installing $app_name.."
 		brew cask install visual-studio-code
 	fi
 	read -p "Open $app_name and go to settings so the directory exists. Hit enter to continue.."
 	echo "Hard linking vscode settings.."
 	ln -f vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
-fi
-
 
 
 app_name="Hyper"
 if ask_confirm $app_name; then
-	if ! open -Ra app_name 2>/dev/null; then
+	if ! open -Ra $app_name 2>/dev/null; then
 		echo "Installing $app_name.."
 		brew cask install hyper
 	fi
@@ -79,9 +84,64 @@ if ask_confirm $app_name; then
 fi
 
 
+app_name="1Password"
+if ask_confirm $app_name; then
+	read -p "Download $app_name from the Apple Store so the licence is present then delete it. Hit Enter to continue.."
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install 1password
+	fi
+fi
+
+
+app_name="Spotify"
+if ask_confirm $app_name; then
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install spotify
+	fi
+fi
+
+
+app_name="VLC"
+if ask_confirm $app_name; then
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install vlc
+	fi
+fi
+
+
+app_name="Zoom.us"
+if ask_confirm $app_name; then
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install zoomus
+	fi
+fi
+
+
+app_name="Franz"
+if ask_confirm $app_name; then
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install franz
+	fi
+fi
+
+
+app_name="Docker"
+if ask_confirm $app_name; then
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install docker
+	fi
+fi
+
+
 app_name="Bartender 2"
 if ask_confirm $app_name; then
-	if ! open -Ra app_name 2>/dev/null; then
+	if ! open -Ra $app_name 2>/dev/null; then
 		echo "Installing $app_name.."
 		brew cask install bartender
 	fi
@@ -92,7 +152,7 @@ fi
 
 app_name="Spectacle"
 if ask_confirm $app_name; then
-	if ! open -Ra app_name 2>/dev/null; then
+	if ! open -Ra $app_name 2>/dev/null; then
 		echo "Installing $app_name.."
 		brew cask install spectacle
 	fi
