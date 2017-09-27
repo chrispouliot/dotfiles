@@ -121,11 +121,11 @@ if ask_confirm $app_name; then
 fi
 
 
-app_name="Franz"
+app_name="Rambox"
 if ask_confirm $app_name; then
 	if ! open -Ra $app_name 2>/dev/null; then
 		echo "Installing $app_name.."
-		brew cask install franz
+		brew cask install rambox
 	fi
 fi
 
