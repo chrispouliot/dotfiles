@@ -57,6 +57,10 @@ echo "Installing awscli.."
 
 brew install awscli
 
+echo "Installing GNU Grep.."
+
+brew install grep
+
 
 
 # -----------------
@@ -164,8 +168,11 @@ fi
 
 
 # ------------
-# GIT SO FANCY
+# GIT AND GIT SO FANCY
 # ------------
+
+ln -f gitignore ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
 
 brew install diff-so-fancy
 
@@ -190,15 +197,19 @@ git config --global color.diff.whitespace "red reverse"
 # ------------
 
 
-read -p 'Local machine user/ip to copy ssh and netrc files: ' localvar
+read -p 'Local machine user@ip to copy uncommitted files: ' localvar
 
 ssh-copy-id $localvar
 
-scp $localvar:~/.ssh/config ~/.ssh/config
+# -p preserves modified dates, -r recursive
 
-scp $localvar:~/.netrc ~/.nerc
+scp -p $localvar:~/.ssh/config ~/.ssh/config
 
-scp $localvar:~/.zsh_history ~/.zsh_history
+scp -p $localvar:~/.netrc ~/.nerc
+
+scp -p $localvar:~/.zsh_history ~/.zsh_history
+
+scp -rp $localvar:~/.LocalMusic ~/.LocalMusic
 
 
 # -------------

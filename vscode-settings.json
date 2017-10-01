@@ -15,6 +15,10 @@
   "editor.minimap.enabled": false,
   // Theme
   "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorCustomizations": {
+    "editor.selectionBackground": "#388799",
+    "editor.selectionHighlightBackground": "#0C4855"
+  },
 
   // Languages
 

@@ -10,7 +10,6 @@ ENABLE_CORRECTION="true"
 
 plugins=()
 
-# User configuration
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -23,6 +22,39 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(thefuck --alias fuck)"
 
+# ALIASES
+alias swupy='pyenv activate sendwithus && cd ~/Projects/web-app'
+alias swugo='cd ~/Projects/go/src/github.com/sendwithus'
+alias ga='git add -A && git status'
+alias gs='git status'
+alias gc='git commit -m'
+alias gca='git commit --amend --no-edit'
+alias gp='git push'
+alias gmm='git merge master'
+alias gcm='git checkout master'
+alias gcp='git checkout production'
+alias grep="ggrep"
+alias pyclean="find . -name '*.py[co]' -delete"
+
+# GOLANG
+export GOPATH="$HOME/Projects/go"
+export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
+
+# TOOL-CLI
+export PATH="$HOME/Projects/tool-cli:$PATH"
+~/Projects/tool-cli/update
+
+
+# VSCode. Path to "code ." wasn't working so just using this function. Eh whatever
+code () {
+if [[ $# = 0 ]]
+then
+    open -a "Visual Studio Code"
+else
+    [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+    open -a "Visual Studio Code" --args "$F"
+fi
+}
 
 
 ### FOR SSH AGENT ###
@@ -52,35 +84,9 @@ fi
 ### SSH AGENT END ###
 
 
-
-# ALIASES
-alias swupy='pyenv activate sendwithus && cd ~/Projects/web-app'
-alias swugo='cd ~/Projects/go/src/github.com/sendwithus'
-alias ga='git add -A && git status'
-alias gs='git status'
-alias gc='git commit -m'
-alias gca='git commit --amend --no-edit'
-alias gp='git push'
-alias gmm='git merge master'
-alias gcm='git checkout master'
-alias gcp='git checkout production'
-alias ij='sh ~/.idea_launcher.sh'
-alias grep="ggrep"
-alias pyclean="find . -name '*.py[co]' -delete"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-#GO
-export GOPATH="$HOME/Projects/go"
-export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
-
-# SWU CLI
-export PATH="$HOME/Projects/tool-cli:$PATH"
-~/Projects/tool-cli/update
+### NVM ###
 
 export NVM_DIR="/Users/christophepouliot/.nvm"
-export DJANGO_SETTINGS_MODULE=settings.dev.chris
 
 # Node version auto load per dir
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -96,17 +102,4 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:/usr/local/Cellar/openssl/1.0.2j/bin/openssl"
-
-# VSCode. Path to "code ." wasn't working so just using this function. Eh whatever
-code () {
-if [[ $# = 0 ]]
-then
-    open -a "Visual Studio Code"
-else
-    [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-    open -a "Visual Studio Code" --args "$F"
-fi
-}
-
+### NVM END ###

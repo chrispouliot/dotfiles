@@ -1,0 +1,6 @@
+.idea/*
+.env
+.activate
+.DS_STORE
+.AppleDouble
+.LSOverride
