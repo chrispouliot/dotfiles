@@ -29,5 +29,16 @@
   "python.linting.flake8Args": ["--ignore=E501,D101,D100"],
   // GitLens
   "gitlens.blame.line.enabled": false,
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "sync.gist": "9f98cc66d51ec82142579d28358386f0",
+  "sync.lastUpload": "2017-10-02T17:15:36.711Z",
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.lastDownload": "",
+  "sync.forceDownload": false,
+  "sync.anonymousGist": false,
+  "sync.host": "",
+  "sync.pathPrefix": "",
+  "sync.quietSync": false,
+  "sync.askGistName": false
 }

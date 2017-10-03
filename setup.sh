@@ -17,50 +17,50 @@ echo "Starting setup.."
 # ------
 # TOOLING
 # ------
+if ask_confirm "Install tooling"; then
+	app_name=Xcode
+	read -p "Download $app_name from the Apple Store. Hit Enter to continue.."
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name dev tools.."
+		xcode-select --install
+	fi
 
-app_name=Xcode
-read -p "Download $app_name from the Apple Store. Hit Enter to continue.."
-if ! open -Ra $app_name 2>/dev/null; then
-	echo "Installing $app_name dev tools.."
-	xcode-select --install
+
+	echo "Installing Homebrew.."
+
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew tap caskroom/cask
+
+	echo "Installing zsh.."
+
+	brew install zsh zsh-completions
+	ln zshrc ~/.zshrc
+
+	echo "Installing pyenv and pyenv-virtualenv.."
+
+	brew install pyenv
+	brew install pyenv-virtualenv
+
+	echo "Installing nvm.."
+
+	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+	echo "Installing thefuck.."
+
+	brew install thefuck
+
+	echo "Installing Heroku toolbelt.."
+
+	brew install heroku/brew/heroku
+
+	echo "Installing awscli.."
+
+	brew install awscli
+
+	echo "Installing GNU Grep.."
+
+	brew install grep
 fi
-
-
-echo "Installing Homebrew.."
-
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap caskroom/cask
-
-echo "Installing zsh.."
-
-brew install zsh zsh-completions
-ln zshrc ~/.zshrc
-
-echo "Installing pyenv and pyenv-virtualenv.."
-
-brew install pyenv
-brew install pyenv-virtualenv
-
-echo "Installing nvm.."
-
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-
-echo "Installing thefuck.."
-
-brew install thefuck
-
-echo "Installing Heroku toolbelt.."
-
-brew install heroku/brew/heroku
-
-echo "Installing awscli.."
-
-brew install awscli
-
-echo "Installing GNU Grep.."
-
-brew install grep
-
 
 
 # -----------------
@@ -75,7 +75,7 @@ if ask_confirm $app_name; then
 	read -p "Open $app_name and go to settings so the directory exists. Hit enter to continue.."
 	echo "Hard linking vscode settings.."
 	ln -f vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
-
+fi
 
 app_name="Hyper"
 if ask_confirm $app_name; then
