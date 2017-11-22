@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/christophepouliot/.oh-my-zsh
 
-ZSH_THEME="geometry"
+ZSH_THEME="geometry/geometry"
 
 # How often update is checked
 export UPDATE_ZSH_DAYS=13
@@ -23,8 +23,8 @@ eval "$(pyenv virtualenv-init -)"
 eval "$(thefuck --alias fuck)"
 
 # ALIASES
-alias swupy='pyenv activate sendwithus && cd ~/Projects/web-app'
-alias swugo='cd ~/Projects/go/src/github.com/sendwithus'
+alias swupy='cd ~/Projects/web-app'
+alias swugo='cd ~/go/src/github.com/sendwithus'
 alias ga='git add -A && git status'
 alias gs='git status'
 alias gc='git commit -m'
@@ -35,9 +35,10 @@ alias gcm='git checkout master'
 alias gcp='git checkout production'
 alias grep="ggrep"
 alias pyclean="find . -name '*.py[co]' -delete"
+alias gitclean="git branch --merged | grep -v '\*\|master\|production' | xargs -n 1 git branch -d"
 
 # GOLANG
-export GOPATH="$HOME/Projects/go"
+export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
 
 # TOOL-CLI

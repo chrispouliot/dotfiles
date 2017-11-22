@@ -8,6 +8,12 @@
     "**/bundle.js": true,
     "**/node_modules": true
   },
+  "search.exclude": {
+    "**/migrations": true,
+    "**/node_modules": true
+  },
+  "workbench.editor.enablePreview": false,
+  "editor.snippetSuggestions": "top",
   "editor.lineNumbers": "off",
   "editor.folding": false,
   "editor.glyphMargin": false,
@@ -19,6 +25,7 @@
     "editor.selectionBackground": "#388799",
     "editor.selectionHighlightBackground": "#0C4855"
   },
+  "workbench.activityBar.visible": false,
 
   // Languages
 
@@ -27,18 +34,30 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": ["--ignore=E501,D101,D100"],
+
+  "go.useLanguageServer": true,
+  "go.vetOnSave": "off",
+  "go.lintTool":"gometalinter",
+  "go.lintFlags": [
+      "--disable=golint",
+      "--disable=vetshadow",
+      "--fast"
+  ],
   // GitLens
   "gitlens.blame.line.enabled": false,
+
   "workbench.startupEditor": "newUntitledFile",
-  "sync.gist": "9f98cc66d51ec82142579d28358386f0",
-  "sync.lastUpload": "2017-10-02T17:15:36.711Z",
+  // SYnc
+  "sync.gist": "0ebc79fd40df975e8a19263bce8943df",
+  "sync.lastUpload": "2017-10-03T22:33:39.669Z",
   "sync.autoDownload": false,
   "sync.autoUpload": false,
-  "sync.lastDownload": "",
+  "sync.lastDownload": "2017-10-03T22:35:44.944Z",
   "sync.forceDownload": false,
   "sync.anonymousGist": false,
   "sync.host": "",
   "sync.pathPrefix": "",
   "sync.quietSync": false,
-  "sync.askGistName": false
+  "sync.askGistName": false,
+  "window.zoomLevel": 0
 }

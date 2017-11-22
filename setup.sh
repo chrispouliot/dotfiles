@@ -205,7 +205,7 @@ ssh-copy-id $localvar
 
 scp -p $localvar:~/.ssh/config ~/.ssh/config
 
-scp -p $localvar:~/.netrc ~/.nerc
+scp -p $localvar:~/.netrc ~/.netrc
 
 scp -p $localvar:~/.zsh_history ~/.zsh_history
 
