@@ -8,7 +8,7 @@ export UPDATE_ZSH_DAYS=13
 
 ENABLE_CORRECTION="true"
 
-plugins=()
+plugins=(zsh-syntax-highlighting)
 
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
