@@ -13,6 +13,7 @@
     "**/node_modules": true
   },
   "workbench.editor.enablePreview": false,
+  "workbench.editor.showTabs": true,
   "editor.snippetSuggestions": "top",
   "editor.lineNumbers": "off",
   "editor.folding": false,
@@ -48,7 +49,7 @@
     "--exclude=.pb.go"
   ],
   // GitLens
-  "gitlens.blame.line.enabled": false,
+  "gitlens.currentLine.enabled": false,
 
   "workbench.startupEditor": "newUntitledFile",
   // Sync

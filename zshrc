@@ -8,7 +8,7 @@ export UPDATE_ZSH_DAYS=13
 
 ENABLE_CORRECTION="true"
 
-plugins=(zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting, zsh-autosuggestions)
 
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -42,8 +42,8 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
 
 # TOOL-CLI
-export PATH="$HOME/Projects/tool-cli:$PATH"
-~/Projects/tool-cli/update
+export PATH="$HOME/Projects/tool-cli/bin:$PATH"
+~/Projects/tool-cli/bin/swu-update
 
 
 # VSCode. Path to "code ." wasn't working so just using this function. Eh whatever
