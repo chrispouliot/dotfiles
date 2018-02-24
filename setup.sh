@@ -30,6 +30,7 @@ if ask_confirm "Install tooling"; then
 
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew tap caskroom/cask
+	brew tap caskroom/drivers
 
 	echo "Installing zsh.."
 
@@ -107,6 +108,15 @@ if ask_confirm $app_name; then
 fi
 
 
+app_name="Google Play Music Desktop Player"
+if ask_confirm $app_name; then
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install google-play-music-desktop-player
+	fi
+fi
+
+
 app_name="VLC"
 if ask_confirm $app_name; then
 	if ! open -Ra $app_name 2>/dev/null; then
@@ -142,6 +152,13 @@ if ask_confirm $app_name; then
 	fi
 fi
 
+app_name="SteelSeries ExactMouse Tool"
+if ask_confirm $app_name; then
+	if ! open -Ra $app_name 2>/dev/null; then
+		echo "Installing $app_name.."
+		brew cask install steelseries-exactmouse-tool
+	fi
+fi
 
 app_name="Bartender 2"
 if ask_confirm $app_name; then
@@ -153,18 +170,6 @@ if ask_confirm $app_name; then
 	ln -f bartender.plist ~/Library/Preferences/com.surteesstudios.Bartender.plist
 fi
 
-
-app_name="Spectacle"
-if ask_confirm $app_name; then
-	if ! open -Ra $app_name 2>/dev/null; then
-		echo "Installing $app_name.."
-		brew cask install spectacle
-	fi
-
-	echo "Hard linking $app_name settings.."
-
-	ln -f spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
-fi
 
 app_name="Chunkwm"
 if ask_confirm $app_name; then
