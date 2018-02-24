@@ -177,12 +177,12 @@ if ask_confirm $app_name; then
 		echo "Installing $app_name.."
 		brew tap crisidev/homebrew-chunkwm
 		brew install chunkwm
-		brew services start chunkwm
 	fi
 
 	echo "Hard linking $app_name settings.."
 
 	ln -f chunkwmrc ~/.chunkwmrc
+	brew services start chunkwm
 fi
 
 app_name="khd"
@@ -190,12 +190,12 @@ if ask_confirm $app_name; then
 	if ! open -Ra $app_name 2>/dev/null; then
 		echo "Installing $app_name.."
 		brew install koekeishiya/formulae/khd
-		brew services start khd
 	fi
 
 	echo "Hard linking $app_name settings.."
 
 	ln -f khdrc ~/.khdrc
+	brew services start khd
 fi
 
 # ------------
