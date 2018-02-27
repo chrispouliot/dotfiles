@@ -26,6 +26,8 @@ eval "$(thefuck --alias fuck)"
 # ALIASES
 alias swupy='cd ~/Projects/web-app'
 alias swugo='cd ~/go/src/github.com/sendwithus'
+alias herokuw='heroku accounts:set work'
+alias herokup='heroku accounts:set personal'
 alias ga='git add -A && git status'
 alias gs='git status'
 alias gc='git commit -m'

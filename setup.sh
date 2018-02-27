@@ -50,9 +50,10 @@ if ask_confirm "Install tooling"; then
 
 	brew install thefuck
 
-	echo "Installing Heroku toolbelt.."
+	echo "Installing Heroku toolbelt and multi accounts plugin.."
 
 	brew install heroku/brew/heroku
+	heroku plugins:install heroku-accounts
 
 	echo "Installing awscli.."
 
