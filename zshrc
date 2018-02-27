@@ -2,6 +2,7 @@
 export ZSH=/Users/christophepouliot/.oh-my-zsh
 
 ZSH_THEME="geometry/geometry"
+GEOMETRY_PROMPT_PLUGINS=(virtualenv git)
 
 # How often update is checked
 export UPDATE_ZSH_DAYS=13
@@ -104,3 +105,4 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 ### NVM END ###
+
