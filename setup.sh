@@ -62,6 +62,10 @@ if ask_confirm "Install tooling"; then
 	echo "Installing GNU Grep.."
 
 	brew install grep
+
+	echo "Installing kubeps1.."
+
+	brew install kube-ps1
 fi
 
 

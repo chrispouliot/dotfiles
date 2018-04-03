@@ -21,7 +21,7 @@
   "editor.fontSize": 16,
   "editor.minimap.enabled": false,
   // Theme
-  "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#388799",
     "editor.selectionHighlightBackground": "#0C4855"
@@ -41,13 +41,16 @@
   "go.vetOnSave": "off",
   "go.lintTool":"gometalinter",
   "go.lintFlags": [
-    "--disable=golint",
-    "--disable=gas",
-    "--disable=gotype",
-    "--disable=gocyclo",
-    "--fast",
-    "--exclude=.pb.go"
+    "--config=/Users/christophepouliot/Projects/linters/golang/gometalinter.json"
   ],
+  // "go.lintFlags": [
+  //   "--disable=golint",
+  //   "--disable=gas",
+  //   "--disable=gotype",
+  //   "--disable=gocyclo",
+  //   "--fast",
+  //   "--exclude=.pb.go"
+  // ],
   // GitLens
   "gitlens.currentLine.enabled": false,
 
@@ -72,8 +75,10 @@
     "suppressGitVersionWarning": false,
     "suppressLineUncommittedWarning": false,
     "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true,
     "suppressUpdateNotice": false,
-    "suppressWelcomeNotice": true,
+    "suppressWelcomeNotice": true
   },
   // VIM
   "vim.disableExtension": false,
@@ -87,5 +92,7 @@
       "before": [" "],
       "after": ["leader", "leader", "leader", "b", "d", "w"]
     }
-  ]
+  ],
+  "gitlens.keymap": "chorded",
+  "workbench.statusBar.feedback.visible": false
 }
