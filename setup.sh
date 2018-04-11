@@ -66,6 +66,10 @@ if ask_confirm "Install tooling"; then
 	echo "Installing kubeps1.."
 
 	brew install kube-ps1
+
+	echo "Installing fkil.."
+	
+	npm install --global fkill-cli
 fi
 
 

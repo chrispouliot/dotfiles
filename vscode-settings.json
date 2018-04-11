@@ -94,5 +94,6 @@
     }
   ],
   "gitlens.keymap": "chorded",
-  "workbench.statusBar.feedback.visible": false
+  "workbench.statusBar.feedback.visible": false,
+  "extensions.ignoreRecommendations": false
 }

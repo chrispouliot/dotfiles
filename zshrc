@@ -4,15 +4,15 @@ export ZSH=/Users/christophepouliot/.oh-my-zsh
 ZSH_THEME="geometry/geometry"
 GEOMETRY_PROMPT_PLUGINS=(virtualenv git)
 
-source $ZSH/oh-my-zsh.sh
-source ~/Projects/dev-config/kube.zsh
-
 # How often update is checked
 export UPDATE_ZSH_DAYS=13
 
 ENABLE_CORRECTION="true"
 
 plugins=(zsh-syntax-highlighting zsh-autosuggestions kubectl)
+
+source $ZSH/oh-my-zsh.sh
+source ~/Projects/dev-config/kube.zsh
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -40,7 +40,7 @@ alias gcm='git checkout master'
 alias gcp='git checkout production'
 alias grep="ggrep"
 alias pyclean="find . -name '*.py[co]' -delete"
-alias gitclean="git branch --merged | grep -v '\*\|master\|production' | xargs -n 1 git branch -d"
+alias gitclean='git branch | egrep -v "(master|\*)" | xargs git branch -D'
 alias ytmusicdl="youtube-dl --extract-audio --audio-format mp3"
 alias k="kubectl"
 
