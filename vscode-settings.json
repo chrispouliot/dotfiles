@@ -57,12 +57,11 @@
   "workbench.startupEditor": "newUntitledFile",
   // Sync
   "sync.gist": "0ebc79fd40df975e8a19263bce8943df",
-  "sync.lastUpload": "2017-10-03T22:33:39.669Z",
+  "sync.lastUpload": "2018-04-24T02:40:04.633Z",
   "sync.autoDownload": false,
   "sync.autoUpload": false,
   "sync.lastDownload": "2017-10-03T22:35:44.944Z",
   "sync.forceDownload": false,
-  "sync.anonymousGist": false,
   "sync.host": "",
   "sync.pathPrefix": "",
   "sync.quietSync": false,
@@ -95,5 +94,7 @@
   ],
   "gitlens.keymap": "chorded",
   "workbench.statusBar.feedback.visible": false,
-  "extensions.ignoreRecommendations": false
+  "extensions.ignoreRecommendations": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true
 }

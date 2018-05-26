@@ -35,14 +35,20 @@ alias gs='git status'
 alias gc='git commit -m'
 alias gca='git commit --amend --no-edit'
 alias gp='git push'
+alias gpf='git push --force-with-lease'
 alias gmm='git merge master'
 alias gcm='git checkout master'
 alias gcp='git checkout production'
+alias glog="git log --graph --decorate --abbrev-commit"
 alias grep="ggrep"
 alias pyclean="find . -name '*.py[co]' -delete"
 alias gitclean='git branch | egrep -v "(master|\*)" | xargs git branch -D'
 alias ytmusicdl="youtube-dl --extract-audio --audio-format mp3"
 alias k="kubectl"
+alias cat="bat"
+
+# Cargo
+export PATH="$PATH:/Users/christophepouliot/.cargo/bin"
 
 # KUBECTRL
 export KUBECONFIG=~/.kube/config:~/.kube/production.kubeconfig:~/.kube/staging.kubeconfig
@@ -51,6 +57,10 @@ export KUBECONFIG=~/.kube/config:~/.kube/production.kubeconfig:~/.kube/staging.k
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
 
+# Source chtf
+if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
+    source "/usr/local/share/chtf/chtf.sh"
+fi
 
 # VSCode. Path to "code ." wasn't working so just using this function. Eh whatever
 code () {
@@ -111,3 +121,5 @@ load-nvmrc
 
 ### NVM END ###
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
