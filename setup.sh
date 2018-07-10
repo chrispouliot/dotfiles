@@ -63,6 +63,10 @@ if ask_confirm "Install tooling"; then
 
 	brew install grep
 
+	echo "Installing ack.."
+
+	brew install ack
+
 	echo "Installing kubeps1.."
 
 	brew install kube-ps1

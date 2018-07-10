@@ -46,6 +46,8 @@ alias gitclean='git branch | egrep -v "(master|\*)" | xargs git branch -D'
 alias ytmusicdl="youtube-dl --extract-audio --audio-format mp3"
 alias k="kubectl"
 alias cat="bat"
+alias tmp="tmux attach -t personal"
+alias tmw="tmux attach -t work"
 
 # Cargo
 export PATH="$PATH:/Users/christophepouliot/.cargo/bin"
