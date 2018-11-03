@@ -48,6 +48,7 @@ alias k="kubectl"
 alias cat="bat"
 alias tmp="tmux attach -t personal"
 alias tmw="tmux attach -t work"
+alias vim="nvim"
 
 # Cargo
 export PATH="$PATH:/Users/christophepouliot/.cargo/bin"
