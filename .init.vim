@@ -34,6 +34,7 @@ set autoindent              " indent a new line the same amount as the line just
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 set clipboard=unnamedplus   " use system clipboard
+set scrolloff=999           " keep cursor centered will scrolling
 
 " Go stuff
 let g:go_fmt_command = "goimports"
@@ -51,6 +52,11 @@ let g:go_auto_sameids = 1
 
 " Auto linting
 call neomake#configure#automake('nrwi', 500)
+let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
+let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
+let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
+let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
+let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
 
 " Autosave
 let g:auto_save = 1
@@ -66,6 +72,20 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+" Resizing
+nnoremap <M-h> :vertical resize -1<CR>
+nnoremap ˙ :vertical resize -1<CR>
+nnoremap <M-j> :resize -1<CR>
+nnoremap ∆ :resize -1<CR>
+nnoremap <M-k> :resize +1<CR>
+nnoremap ˚ :resize +1<CR>
+nnoremap <M-l> :vertical resize +1<CR>
+nnoremap ¬ :vertical resize +1<CR>
+nnoremap <S-h> :tabp<CR>
+nnoremap <S-l> :tabn<CR>
+nnoremap <S-k> :tabe<CR>
+" Quick access
+nnoremap <C-t> :terminal<CR>
 
 " Searching
 nnoremap <C-f> :FZF<CR>
@@ -85,3 +105,5 @@ let g:two_firewatch_italics=1
 colo two-firewatch
 set termguicolors
 
+" More responsive
+set lazyredraw

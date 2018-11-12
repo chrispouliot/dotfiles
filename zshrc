@@ -16,6 +16,8 @@ source ~/Projects/dev-config/kube.zsh
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
+
 
 DEFAULT_USER=christophepouliot
 
