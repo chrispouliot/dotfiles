@@ -1,16 +1,23 @@
 call plug#begin('~/.local/share/nvim/plugged')
+" AUTOCOMPLETE
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+" END AUTOCOMPLETE
+
+" Syntax highlighting and lang specifics
 Plug 'fatih/vim-go'
-Plug 'neomake/neomake'
+Plug 'pangloss/vim-javascript'
+" End lang specifics
+Plug 'neomake/neomake' " All linting
+
 Plug 'airblade/vim-gitgutter'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'rking/ag.vim'
-Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder
+Plug 'junegunn/fzf.vim' " fuzzy finder
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " file tree
+Plug 'rking/ag.vim' " silver surfer search
+Plug 'easymotion/vim-easymotion' " nice navigation
 Plug '907th/vim-auto-save'
 call plug#end()
 
@@ -35,6 +42,8 @@ set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 set clipboard=unnamedplus   " use system clipboard
 set scrolloff=999           " keep cursor centered will scrolling
+autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " Go stuff
 let g:go_fmt_command = "goimports"
@@ -52,10 +61,7 @@ let g:go_auto_sameids = 1
 
 " Auto linting
 call neomake#configure#automake('nrwi', 500)
-let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
-let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
+let g:neomake_place_signs = 0
 let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
 
 " Autosave
