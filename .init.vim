@@ -1,14 +1,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
-" AUTOCOMPLETE
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-" END AUTOCOMPLETE
+" Autocompletion
+Plug 'Valloric/YouCompleteMe'
 
 " Syntax highlighting and lang specifics
-Plug 'fatih/vim-go'
-Plug 'pangloss/vim-javascript'
-" End lang specifics
+Plug 'fatih/vim-go' " Syntax and go tool running
+Plug 'pangloss/vim-javascript' " Syntax
 Plug 'neomake/neomake' " All linting
 
 Plug 'airblade/vim-gitgutter'
@@ -16,16 +12,12 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder
 Plug 'junegunn/fzf.vim' " fuzzy finder
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " file tree
+Plug 'Xuyuanp/nerdtree-git-plugin' " Git in nerdtree file browser
 Plug 'rking/ag.vim' " silver surfer search
 Plug 'easymotion/vim-easymotion' " nice navigation
 Plug '907th/vim-auto-save'
 call plug#end()
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-" Set Python completions
-let g:python_host_prog = '/Users/christophepouliot/.pyenv/versions/2.7.8/envs/neovim2/bin/python'
-let g:python3_host_prog = '/Users/christophepouliot/.pyenv/versions/3.6.2/envs/neovim3/bin/python'
 
 " Misc quality of life improvements
 set nocompatible            " Disable compatibility to old-time vi
@@ -58,11 +50,16 @@ let g:go_addtags_transform = "camelcase"
 let g:go_auto_type_info = 1
 let g:go_info_mode = 'gocode'
 let g:go_auto_sameids = 1
+" YouCompleteMe Autocompletion
+let g:ycm_add_preview_to_completeopt = 0 " Turn off preview window
+set completeopt-=preview " Just remove preview window completely
 
 " Auto linting
 call neomake#configure#automake('nrwi', 500)
 let g:neomake_place_signs = 0
 let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
+let g:neomake_python_enabled_makers = [ 'python', 'flake8']
+let g:neomake_python_flake8_maker = { 'args': ['--ignore=C0301,E501'] }
 
 " Autosave
 let g:auto_save = 1
