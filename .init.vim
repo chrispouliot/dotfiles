@@ -5,10 +5,11 @@ Plug 'Valloric/YouCompleteMe'
 " Syntax highlighting and lang specifics
 Plug 'fatih/vim-go' " Syntax and go tool running
 Plug 'pangloss/vim-javascript' " Syntax
+Plug 'vim-python/python-syntax' " Syntax
 Plug 'neomake/neomake' " All linting
 
 Plug 'airblade/vim-gitgutter'
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder
 Plug 'junegunn/fzf.vim' " fuzzy finder
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " file tree
@@ -40,6 +41,9 @@ autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " Go stuff
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
@@ -50,6 +54,10 @@ let g:go_addtags_transform = "camelcase"
 let g:go_auto_type_info = 1
 let g:go_info_mode = 'gocode'
 let g:go_auto_sameids = 1
+
+" Python Stuff
+let g:python_highlight_all = 1
+
 " YouCompleteMe Autocompletion
 let g:ycm_add_preview_to_completeopt = 0 " Turn off preview window
 set completeopt-=preview " Just remove preview window completely
@@ -102,10 +110,8 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" Sset theme and make work in tmux
-set background=dark " or light if you prefer the light version
-let g:two_firewatch_italics=1
-colo two-firewatch
+syntax on
+colorscheme onedark
 set termguicolors
 
 " More responsive
